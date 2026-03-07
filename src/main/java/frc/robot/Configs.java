@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
+import com.ctre.phoenix6.configs.MotorOutputConfigs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
@@ -11,7 +13,7 @@ import com.revrobotics.spark.FeedbackSensor;
 import com.revrobotics.spark.config.AbsoluteEncoderConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
-
+import static edu.wpi.first.units.Units.Amps;
 import frc.robot.Constants.ModuleConstants;
 
 /** Add your docs here. */
@@ -69,6 +71,127 @@ public class Configs {
                     // longer route.
                     .positionWrappingEnabled(true)
                     .positionWrappingInputRange(0, turningFactor);
+        }
+    }
+
+    public static final class shooterMotor {
+
+        public static final TalonFXConfiguration shooterConfig = new TalonFXConfiguration();
+
+        static {
+            // ========== LEFT SHOOTER CONFIG ==========
+            shooterConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
+
+            // Current Limits
+            shooterConfig.CurrentLimits.SupplyCurrentLimit = 120;
+            shooterConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
+            shooterConfig.CurrentLimits.StatorCurrentLimit = 80;  // Prevents overheating
+            shooterConfig.CurrentLimits.StatorCurrentLimitEnable = true;
+
+            // Invert Motor
+            shooterConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
+
+            // Gear Ratio
+            shooterConfig.Feedback.SensorToMechanismRatio = 1.0;
+
+            // PID VALUES
+            shooterConfig.Slot0.kP = 0.2;
+            shooterConfig.Slot0.kI = 0.0;
+            shooterConfig.Slot0.kD = 0.0;
+            shooterConfig.Slot0.kV = 12.0 / Constants.KrakenX60.kFreeSpeedRPS;
+
+            // Voltage Control
+            shooterConfig.Voltage.PeakForwardVoltage = 12.0;
+            shooterConfig.Voltage.PeakReverseVoltage = -12.0;
+        }
+    }
+
+    public static final class feederMotor {        
+        // Create configuration class for our feeder motors
+        public static final TalonFXConfiguration feederConfig = new TalonFXConfiguration();
+        public static final TalonFXConfiguration feederVoltageConfig = new TalonFXConfiguration();
+
+        static {
+            // Coast or Brake
+            feederConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
+
+            // Current Limits - ADDED STATOR LIMIT
+            feederConfig.CurrentLimits.SupplyCurrentLimit = 60;
+            feederConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
+            feederConfig.CurrentLimits.StatorCurrentLimit = 60;  // NEW - medium load mechanism
+            feederConfig.CurrentLimits.StatorCurrentLimitEnable = true;
+
+            // Invert Motor
+            feederConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
+
+            // Gear Ratio
+            feederConfig.Feedback.SensorToMechanismRatio = 1.0;
+
+            // PID VALUES
+            feederConfig.Slot0.kP = 0.1;
+            feederConfig.Slot0.kI = 0.0;
+            feederConfig.Slot0.kD = 0.0;
+            feederConfig.Slot0.kV = 12.0 / Constants.KrakenX60.kFreeSpeedRPS;
+
+            // Voltage Control
+            feederConfig.Voltage.PeakForwardVoltage = 12.0;
+            feederConfig.Voltage.PeakReverseVoltage = -12.0;
+
+            feederVoltageConfig.withMotorOutput(
+                 new MotorOutputConfigs()
+                    .withInverted(InvertedValue.Clockwise_Positive)
+                    .withNeutralMode(NeutralModeValue.Brake)
+            )
+                        .withCurrentLimits(
+                new CurrentLimitsConfigs()
+                    .withStatorCurrentLimit(Amps.of(120))
+                    .withStatorCurrentLimitEnable(true)
+                    .withSupplyCurrentLimit(Amps.of(30))
+                    .withSupplyCurrentLimitEnable(true)
+            );
+        }
+    }
+
+    public static final class floorMotor {
+
+        public static final TalonFXConfiguration floorConfig = new TalonFXConfiguration();
+        public static final TalonFXConfiguration floorVoltageConfig = new TalonFXConfiguration();
+        
+        static {
+            floorConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
+
+            // Current Limits - ADDED STATOR LIMIT
+            floorConfig.CurrentLimits.SupplyCurrentLimit = 40;
+            floorConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
+            floorConfig.CurrentLimits.StatorCurrentLimit = 60;  // NEW - medium load mechanism
+            floorConfig.CurrentLimits.StatorCurrentLimitEnable = true;
+
+            floorConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
+    
+            floorConfig.Feedback.SensorToMechanismRatio = 1.0;
+
+            floorConfig.Slot0.kP = 0.1;
+            floorConfig.Slot0.kI = 0.0;
+            floorConfig.Slot0.kD = 0.0;
+            floorConfig.Slot0.kV = 12.0 / Constants.KrakenX60.kFreeSpeedRPS;
+
+            // Voltage Control  
+            floorConfig.Voltage.PeakForwardVoltage = 12.0;
+            floorConfig.Voltage.PeakReverseVoltage = -12.0;
+
+
+            floorVoltageConfig.withMotorOutput(
+                 new MotorOutputConfigs()
+                    .withInverted(InvertedValue.CounterClockwise_Positive)
+                    .withNeutralMode(NeutralModeValue.Brake)
+            )
+                        .withCurrentLimits(
+                new CurrentLimitsConfigs()
+                    .withStatorCurrentLimit(Amps.of(120))
+                    .withStatorCurrentLimitEnable(true)
+                    .withSupplyCurrentLimit(Amps.of(30))
+                    .withSupplyCurrentLimitEnable(true)
+            );
         }
     }
 

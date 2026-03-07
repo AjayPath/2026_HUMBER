@@ -105,6 +105,11 @@ public final class Constants {
     public static final double kFreeSpeedRps = 100;
   }
 
+  public static class KrakenX60 {
+    public static final double kFreeSpeedRPM = 6000.0; // RPM
+    public static final double kFreeSpeedRPS = 100.0;
+  }
+
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }

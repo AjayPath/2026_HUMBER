@@ -307,25 +307,25 @@ public class APOdometry {
     SmartDashboard.putNumber("Odometry/Y", pose.getY());
     SmartDashboard.putNumber("Odometry/Angle", pose.getAngle());
     
-    // Velocity
-    SmartDashboard.putNumber("Odometry/Velocity Magnitude", lastVelocity.getMagnitude());
-    SmartDashboard.putNumber("Odometry/Velocity Angle", lastVelocity.getAngle().getDegrees());
+    // // Velocity
+    // SmartDashboard.putNumber("Odometry/Velocity Magnitude", lastVelocity.getMagnitude());
+    // SmartDashboard.putNumber("Odometry/Velocity Angle", lastVelocity.getAngle().getDegrees());
     
-    // Individual wheel poses (optional - can be verbose)
-    for (int i = 0; i < modulePoses.size(); i++) {
-      Pose wheelPose = modulePoses.get(i);
-      SmartDashboard.putNumber("Odometry/Wheel " + i + " X", wheelPose.getX());
-      SmartDashboard.putNumber("Odometry/Wheel " + i + " Y", wheelPose.getY());
-      SmartDashboard.putNumber("Odometry/Wheel " + i + " Angle", wheelPose.getAngle());
-    }
+    // // Individual wheel poses (optional - can be verbose)
+    // for (int i = 0; i < modulePoses.size(); i++) {
+    //   Pose wheelPose = modulePoses.get(i);
+    //   SmartDashboard.putNumber("Odometry/Wheel " + i + " X", wheelPose.getX());
+    //   SmartDashboard.putNumber("Odometry/Wheel " + i + " Y", wheelPose.getY());
+    //   SmartDashboard.putNumber("Odometry/Wheel " + i + " Angle", wheelPose.getAngle());
+    // }
   }
 
-  /**
-   * Logs wheel poses to console (for debugging).
-   */
-  public void logWheelPoses() {
-    for (int i = 0; i < swerveMods.size(); i++) {
-      modulePoses.get(i).print("Wheel", i);
-    }
-  }
+  // /**
+  //  * Logs wheel poses to console (for debugging).
+  //  */
+  // public void logWheelPoses() {
+  //   for (int i = 0; i < swerveMods.size(); i++) {
+  //     modulePoses.get(i).print("Wheel", i);
+  //   }
+  // }
 }
