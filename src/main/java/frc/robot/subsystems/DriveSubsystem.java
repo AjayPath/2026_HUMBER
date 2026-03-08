@@ -14,6 +14,7 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
+import frc.robot.Variables;
 import frc.robot.utils.APOdometry;
 import frc.robot.utils.Pose;
 
@@ -59,7 +60,7 @@ public class DriveSubsystem extends SubsystemBase {
   public void periodic() {
     // Update the custom odometry in the periodic block
     m_odometry.update();
-    
+    Variables.drive.robotHeading = getHeading();
     // Publish odometry data to SmartDashboard
     m_odometry.publishToSmartDashboard();
   }
