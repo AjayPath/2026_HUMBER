@@ -22,9 +22,35 @@ public class LimelightSubsystem extends SubsystemBase {
   //   Per-tag TY → Distance tables
   // -------------------------------------------------------
   private static final double[][] T10_DISTANCE_DATA = {
-    {-19.06, 0.71}, // {tY, distance}
-    {-21, 1},
-    {-22, 1.5},
+    {6.00, 0.298}, // {tY, distance}
+    {-2.14, 0.525},
+    {-6.89, 0.720},
+    {-10.59, 0.930},
+    {-13.37, 1.105},
+    {-16.59, 1.380},
+    {-18.95, 1.635},
+    {-20.69, 1.905},
+    {-21.96, 2.143},
+    {-23.65, 2.530},
+    {-24.48, 2.728},
+  };
+
+  private static final double[][] T8_DISTANCE_DATA = {
+    {4.00, 0.32}, // {tY, distance}
+    {-2.65, 0.52},
+    {-10.00, 0.86},
+    {-13.51, 1.09},
+    {-15.84, 1.28},
+    {-18.65, 1.57},
+    {-20.96, 1.85},
+    {-22.69, 2.20},
+    {-23.36, 2.45},
+    {-24.03, 2.69},
+    {-25.00, 2.74},
+    {-26.00, 2.76},
+    {-28.00, 2.80},
+    {-29.00, 2.90},
+    {-30.00, 3.00}
   };
 
   private static final double[][] T2_DISTANCE_DATA = {
@@ -83,17 +109,36 @@ public class LimelightSubsystem extends SubsystemBase {
     {-8.72, 2.17},
   };
 
+  private static final double[][] T7_DISTANCE_DATA = {
+    {5.88, 0.00}, // {tY, distance}
+    {-3.89, 0.22},
+    {-11.13, 0.41},
+    {16.67, 0.68},
+    {-20.17, 0.95},
+    {-22.65, 1.21},
+    {-24.42, 1.47},
+    {-26.24, 1.98},
+  };
+
+    private static final double[][] T6_DISTANCE_DATA = {
+    {-8.26, 0.30}, // {tY, distance}
+    {-14.27, 0.55},
+    {-18.83, 0.90},
+    {-22.51, 1.19},
+    {-25.28, 1.49},
+    {-26.15, 1.72},
+  };
+
   // Distance → Shooter RPS
   private static final double[][] SPEED_DATA = {
-    {1.67, 56}, // {distance, speed}
-    {1.79, 58},
-    {1.92, 59},
-    {2.10, 60},
-    {2.20, 62},
-    {2.40, 62},
-    {2.58, 63},
-    {2.90, 67},
-    {3.07, 68},
+    {1.51, 60},  // {distance, speed}
+    {1.92, 62},
+    {2.34, 64},
+    {2.71, 67},
+    {2.75, 69},
+    {2.80, 72},
+    {3.00, 75},
+    {3.25, 75}
   };
 
   public LimelightSubsystem() {
@@ -113,6 +158,10 @@ public class LimelightSubsystem extends SubsystemBase {
       case 13: return T13_DISTANCE_DATA;
       case 1:  return T1_DISTANCE_DATA;
       case 12: return T12_DISTANCE_DATA;
+      case 8: return T8_DISTANCE_DATA;
+      case 11: return T8_DISTANCE_DATA;
+      case 7: return T7_DISTANCE_DATA;
+      case 6: return T6_DISTANCE_DATA;
       default: return null;
     }
   }

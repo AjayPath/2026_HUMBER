@@ -78,19 +78,22 @@ public class RobotContainer {
       .whileTrue(new InstantCommand(() -> m_robotDrive.zeroHeading(), m_robotDrive));
 
     new Trigger(() -> m_driverController.getRightTriggerAxis() > 0.2)
-      .whileTrue(new ShootSequence(s_shooterSubsystem, s_feederSubsystem, s_floorSubsystem, m_robotDrive, Variables.limelight.shooterRPS));
+     .whileTrue(new ShootSequence(s_shooterSubsystem, s_feederSubsystem, s_floorSubsystem, m_robotDrive, s_intakeSubsystem, s_pivotSubsystem, Variables.limelight.shooterRPS));
 
     new Trigger(() -> m_driverController.getLeftTriggerAxis() > 0.2)
-      .whileTrue(new RunIntake(s_intakeSubsystem, s_pivotSubsystem, 30, 110));
+      .whileTrue(new RunIntake(s_intakeSubsystem, s_pivotSubsystem, 30, 115));
 
-    new JoystickButton(m_driverController, XboxController.Button.kRightBumper.value)
+    new JoystickButton(m_driverController, XboxController.Button.kY.value)
       .whileTrue(new Purge(s_feederSubsystem, s_shooterSubsystem, s_intakeSubsystem, s_floorSubsystem));
 
     new JoystickButton(m_driverController, XboxController.Button.kLeftBumper.value)
       .whileTrue(new SetPivotPosition(s_pivotSubsystem, 10));
     
     new JoystickButton(m_driverController, XboxController.Button.kA.value)
-      .whileTrue(new ShootSequence(s_shooterSubsystem, s_feederSubsystem, s_floorSubsystem, m_robotDrive, 65));
+      .whileTrue(new ShootSequence(s_shooterSubsystem, s_feederSubsystem, s_floorSubsystem, m_robotDrive, s_intakeSubsystem, s_pivotSubsystem, 68));
+
+    // new JoystickButton(m_driverController, XboxController.Button.kRightBumper.value)
+    //   .whileTrue(new PassSequence(s_shooterSubsystem, s_feederSubsystem, s_floorSubsystem, m_robotDrive, s_intakeSubsystem, s_pivotSubsystem, 80));
 
     new JoystickButton(m_driverController, XboxController.Button.kX.value)
       .whileTrue(new TurnToTagLive(m_robotDrive));

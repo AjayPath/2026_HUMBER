@@ -10,8 +10,8 @@ import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PivotSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 
-public class ShootSequence extends SequentialCommandGroup {
-  public ShootSequence(
+public class PassSequence extends SequentialCommandGroup {
+  public PassSequence(
       ShooterSubsystem shooter,
       FeederSubsystem feeder,
       FloorSubsystem floor,
@@ -21,8 +21,7 @@ public class ShootSequence extends SequentialCommandGroup {
       double shooterRPS
   ) {
     addCommands(
-
-      new TurnToTagLive(drive),
+      new TurnToAngle(drive, 180),
       new ParallelCommandGroup(
         // Lock drivetrain in place
         // new RunCommand(() -> drive.setX(), drive),

@@ -30,7 +30,7 @@ public final class Configs {
             drivingConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
             
             // Current Limits - ADDED STATOR LIMIT
-            drivingConfig.CurrentLimits.SupplyCurrentLimit = 50;
+            drivingConfig.CurrentLimits.SupplyCurrentLimit = 40;
             drivingConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
             drivingConfig.CurrentLimits.StatorCurrentLimit = 70;  // NEW - swerve drive under load
             drivingConfig.CurrentLimits.StatorCurrentLimitEnable = true;
@@ -82,7 +82,7 @@ public final class Configs {
             shooterConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
 
             // Current Limits
-            shooterConfig.CurrentLimits.SupplyCurrentLimit = 120;
+            shooterConfig.CurrentLimits.SupplyCurrentLimit = 75;
             shooterConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
             shooterConfig.CurrentLimits.StatorCurrentLimit = 80;  // Prevents overheating
             shooterConfig.CurrentLimits.StatorCurrentLimitEnable = true;
@@ -213,7 +213,7 @@ public final class Configs {
             intakeConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
 
             // Gear Ratio
-            intakeConfig.Feedback.SensorToMechanismRatio = 1.0;
+            intakeConfig.Feedback.SensorToMechanismRatio = 20.0/12.0;
 
             // PID VALUES
             intakeConfig.Slot0.kP = 0.1;
