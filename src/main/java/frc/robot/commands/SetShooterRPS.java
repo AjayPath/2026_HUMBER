@@ -12,10 +12,20 @@ import frc.robot.subsystems.ShooterSubsystem;
 public class SetShooterRPS extends Command {
   private final ShooterSubsystem ShooterSubsystem;
   private final double rps;
+  private boolean isLimelight;
   
   public SetShooterRPS(ShooterSubsystem ShooterSubsystem, double rps) {
     this.ShooterSubsystem = ShooterSubsystem;
     this.rps = rps;
+    this.isLimelight = false;
+
+    addRequirements(ShooterSubsystem);
+  }
+
+  public SetShooterRPS(ShooterSubsystem ShooterSubsystem) {
+    this.ShooterSubsystem = ShooterSubsystem;
+    this.rps = 0;
+    this.isLimelight = true;
 
     addRequirements(ShooterSubsystem);
   }
@@ -27,7 +37,11 @@ public class SetShooterRPS extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Variables.shooter.shooterRPS = Variables.limelight.shooterRPS;
+    if (isLimelight) {
+      Variables.shooter.shooterRPS = Variables.limelight.shooterRPS;
+    } else {
+      Variables.shooter.shooterRPS = rps;
+    }
   }
 
 

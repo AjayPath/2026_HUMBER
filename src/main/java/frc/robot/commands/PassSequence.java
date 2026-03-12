@@ -36,9 +36,9 @@ public class PassSequence extends SequentialCommandGroup {
 
             // Then run floor and feeder
             new ParallelCommandGroup(
-              new SetFloorRPS(floor, 40),
+            new SetFloorRPS(floor, 40),
               new SetFeederRPS(feeder, 90),
-              new RunIntake(intake, pivot, 30, 70)
+              new RunIntake(intake, pivot,30, 70)
             )
           )
         )

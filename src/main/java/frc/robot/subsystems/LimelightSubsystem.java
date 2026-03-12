@@ -22,111 +22,85 @@ public class LimelightSubsystem extends SubsystemBase {
   //   Per-tag TY → Distance tables
   // -------------------------------------------------------
   private static final double[][] T10_DISTANCE_DATA = {
-    {6.00, 0.298}, // {tY, distance}
-    {-2.14, 0.525},
-    {-6.89, 0.720},
-    {-10.59, 0.930},
-    {-13.37, 1.105},
-    {-16.59, 1.380},
-    {-18.95, 1.635},
-    {-20.69, 1.905},
-    {-21.96, 2.143},
-    {-23.65, 2.530},
-    {-24.48, 2.728},
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
+  };
+
+  private static final double[][] T11_DISTANCE_DATA = {
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
   };
 
   private static final double[][] T8_DISTANCE_DATA = {
-    {4.00, 0.32}, // {tY, distance}
-    {-2.65, 0.52},
-    {-10.00, 0.86},
-    {-13.51, 1.09},
-    {-15.84, 1.28},
-    {-18.65, 1.57},
-    {-20.96, 1.85},
-    {-22.69, 2.20},
-    {-23.36, 2.45},
-    {-24.03, 2.69},
-    {-25.00, 2.74},
-    {-26.00, 2.76},
-    {-28.00, 2.80},
-    {-29.00, 2.90},
-    {-30.00, 3.00}
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
   };
 
   private static final double[][] T2_DISTANCE_DATA = {
-    {4.93 ,1.30}, // {tY, distance}
-    {4.15, 1.40},
-    {2.37, 1.52},
-    {0.20, 1.73},
-    {-1.86, 1.93},
-    {-3.60, 2.20},
-    {-4.97, 2.50},
-    {-6.00, 2.74},
-    {-6.51, 2.90},
-    {-7.22, 3.07},
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
   };
 
   private static final double[][] T5_DISTANCE_DATA = {
-    {21.10, 10.93}, // {tY, distance}
-    {10, 0},
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
   };
 
   private static final double[][] T13_DISTANCE_DATA = {
-    {-15.91, 0.70}, // {tY, distance}
-    {-16.53, 0.94},
-    {-16.71, 1.10},
-    {-16.88, 1.23},
-    {-17.00, 1.42},
-    {-17.18, 1.64},
-    {-17.29, 2.00},
-    {-17.31, 2.30},
-    {-17.36, 2.53},
-    {-17.38, 2.90},
-    {-17.43, 3.00},
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
   };
 
   private static final double[][] T1_DISTANCE_DATA = { // Official
-    {14.98, 0.52}, // {tY, distance}
-    {4.87, 0.81},
-    {2.10, 0.94},
-    {-1.02, 1.20},
-    {-4.00, 1.40},
-    {-6.12, 1.69},
-    {-7.77, 1.96},
-    {-9.34, 2.35},
-    {-10.67, 2.74},
-    {-11.62 ,3.00},
-    {-12.41, 3.35},
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
   };
 
   private static final double[][] T12_DISTANCE_DATA = { // Official
-    {16.78, 0.52}, // {tY, distance}
-    {7.14, 0.80},
-    {2.16, 0.97},
-    {-1.41, 1.20},
-    {-5.12, 1.54},
-    {-7.24, 1.86},
-    {-8.72, 2.17},
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
   };
 
   private static final double[][] T7_DISTANCE_DATA = {
-    {5.88, 0.00}, // {tY, distance}
-    {-3.89, 0.22},
-    {-11.13, 0.41},
-    {16.67, 0.68},
-    {-20.17, 0.95},
-    {-22.65, 1.21},
-    {-24.42, 1.47},
-    {-26.24, 1.98},
+    {-2.58, 0.33}, // {tY, distance}
+    {-9.91, 0.65},
+    {-16.05, 1.14},
+    {-19.13, 1.62},
+    {-20.49, 2.01},
   };
 
     private static final double[][] T6_DISTANCE_DATA = {
-    {-8.26, 0.30}, // {tY, distance}
-    {-14.27, 0.55},
-    {-18.83, 0.90},
-    {-22.51, 1.19},
-    {-25.28, 1.49},
-    {-26.15, 1.72},
+    {8.64, 0.05}, // {tY, distance}
+    {-4.27, 0.35},
+    {-11.01, 0.65},
+    {-16.12, 1.16},
+    {-19.97, 1.64},
+    {-21.19, 2.13},
+    {-22.22, 2.58}
   };
 
   // Distance → Shooter RPS
@@ -135,10 +109,10 @@ public class LimelightSubsystem extends SubsystemBase {
     {1.92, 62},
     {2.34, 64},
     {2.71, 67},
-    {2.75, 69},
-    {2.80, 72},
-    {3.00, 75},
-    {3.25, 75}
+    {2.75, 68},
+    {2.80, 70},
+    {3.00, 70},
+    {3.25, 70}
   };
 
   public LimelightSubsystem() {
@@ -159,7 +133,7 @@ public class LimelightSubsystem extends SubsystemBase {
       case 1:  return T1_DISTANCE_DATA;
       case 12: return T12_DISTANCE_DATA;
       case 8: return T8_DISTANCE_DATA;
-      case 11: return T8_DISTANCE_DATA;
+      case 11: return T11_DISTANCE_DATA;
       case 7: return T7_DISTANCE_DATA;
       case 6: return T6_DISTANCE_DATA;
       default: return null;
@@ -238,7 +212,20 @@ public class LimelightSubsystem extends SubsystemBase {
     double robotY = -distance * Math.sin(bearingRad);
 
     return new Pose(robotX, robotY, robotYawDeg);
-}
+  }
+
+  // -------------------------------------------------------
+  //   Rumble Tags
+  // -------------------------------------------------------
+
+  public boolean isRumbleTagVisible() {
+    if (!Variables.limelight.hasValidTarget) {
+      return false;
+    }
+
+    int id = (int) Math.round(Variables.limelight.tID);
+    return id == 10 || id == 8 || id == 24 || id == 27 || id == 26 || id == 11;
+  }
 
   // -------------------------------------------------------
   //   Periodic

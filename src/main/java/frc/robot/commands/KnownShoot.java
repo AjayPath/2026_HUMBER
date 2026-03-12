@@ -10,25 +10,21 @@ import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PivotSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 
-public class ShootSequence extends SequentialCommandGroup {
-  public ShootSequence(
+public class KnownShoot extends SequentialCommandGroup {
+  public KnownShoot(
       ShooterSubsystem shooter,
       FeederSubsystem feeder,
       FloorSubsystem floor,
       DriveSubsystem drive,
       IntakeSubsystem intake,
-      PivotSubsystem pivot
+      PivotSubsystem pivot,
+      double shooterRPS
   ) {
     addCommands(
-
-      new TurnToTagLive(drive),
-      new ParallelCommandGroup(
-        // Lock drivetrain in place
-        // new RunCommand(() -> drive.setX(), drive),
-
-        new ParallelCommandGroup(
           // Shooter runs the entire time, never interrupted
-          new SetShooterRPS(shooter),
+        new ParallelCommandGroup(
+          new SetShooterRPS(shooter, shooterRPS),
+
 
           new SequentialCommandGroup(
             // Wait until shooter is up to speed before feeding
@@ -38,11 +34,10 @@ public class ShootSequence extends SequentialCommandGroup {
             new ParallelCommandGroup(
               new SetFloorRPS(floor, 40),
               new SetFeederRPS(feeder, 90),
-              new RunIntake(intake, pivot,30, 70)
+              new RunIntake(intake, pivot, 30, 70)
             )
           )
         )
-      )
-    );
+        );
   }
 }
