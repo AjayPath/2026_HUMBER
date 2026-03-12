@@ -93,58 +93,41 @@ public class RobotContainer {
    }
 
   public Command getLeftSideAuto() {
-
-    return 
+    return
     new SequentialCommandGroup(
           new ParallelCommandGroup(
           new SetPivotPosition(s_pivotSubsystem, 119),
           new ResetPose(m_robotDrive, s_limelightSubsystem)
           ),
-
-          new DriveToPoint(m_robotDrive, 2.8, 0, 0, 0.25, 5),
+          new DriveToPoint(m_robotDrive, 2.3, 0, 0, 0.25, 5),
           new ParallelDeadlineGroup(
-             new DriveToPoint(m_robotDrive, 3.7, -1, 270, 0.25, 5),
-             new RunIntake(s_intakeSubsystem, s_pivotSubsystem, 80, 119)
-          ),
-
-          new ParallelDeadlineGroup(
-            new DriveToPoint(m_robotDrive, 3.7, -4, 270, 0.25, 5),
+            new DriveToPoint(m_robotDrive, 4.2, -1, 270, 0.25, 5),
             new RunIntake(s_intakeSubsystem, s_pivotSubsystem, 80, 119)
           ),
-
-            new ParallelDeadlineGroup(
-             new DriveToPoint(m_robotDrive, 2.5, -0.35, 180, 0.5, 5),
-             new RunIntake(s_intakeSubsystem, s_pivotSubsystem, 80, 119)
-           ),
-
-           new WaitCommand(0.2),
-           new ResetPose(m_robotDrive, s_limelightSubsystem),
-           new ParallelDeadlineGroup(
-             new DriveToPoint(m_robotDrive, -2, 0, 180, 0.25, 3),
-             new RunIntake(s_intakeSubsystem, s_pivotSubsystem, 80, 119)
-           ),
+          new ParallelDeadlineGroup(
+            new DriveToPoint(m_robotDrive, 4.2, -4, 270, 0.25, 5),
+            new RunIntake(s_intakeSubsystem, s_pivotSubsystem, 80, 119)
+          ),
+          new DriveToPoint(m_robotDrive, 2.5, -0.35, 180, 0.25, 5),
+          new WaitCommand(0.25),
+          new ResetPose(m_robotDrive, s_limelightSubsystem),
+          new DriveToPoint(m_robotDrive, -2, 0, 180, 0.25, 3),
           new TurnToAngle(m_robotDrive, 310),
           new ShootSequence(s_shooterSubsystem, s_feederSubsystem, s_floorSubsystem, m_robotDrive, s_intakeSubsystem, s_pivotSubsystem).withTimeout(4),
           new TurnToAngle(m_robotDrive, 0),
           new ResetPose(m_robotDrive, s_limelightSubsystem),
           new DriveToPoint(m_robotDrive, 2.3, 0, 0, 0.25, 5),
           new ParallelDeadlineGroup(
-             new DriveToPoint(m_robotDrive, 2.3, -4, 270, 0.25, 5),
-             new RunIntake(s_intakeSubsystem, s_pivotSubsystem, 80, 119)
-           ),
-          new ParallelDeadlineGroup(
-             new DriveToPoint(m_robotDrive, 2.3, -0.35, 180, 0.25, 5),
-             new RunIntake(s_intakeSubsystem, s_pivotSubsystem, 80, 119)
-           ),
-          new WaitCommand(0.25),
-          new ResetPose(m_robotDrive, s_limelightSubsystem),
-            new ParallelDeadlineGroup(
-            new DriveToPoint(m_robotDrive, -2.2, 0, 180, 0.25, 3),
+            new DriveToPoint(m_robotDrive, 2.3, -4, 270, 0.25, 5),
             new RunIntake(s_intakeSubsystem, s_pivotSubsystem, 80, 119)
           ),
+          new DriveToPoint(m_robotDrive, 2.3, -0.35, 180, 0.25, 5),
+          new WaitCommand(0.25),
+          new ResetPose(m_robotDrive, s_limelightSubsystem),
+          new DriveToPoint(m_robotDrive, -2.2, 0, 180, 0.25, 3),
           new TurnToAngle(m_robotDrive, 310),
           new ShootSequence(s_shooterSubsystem, s_feederSubsystem, s_floorSubsystem, m_robotDrive, s_intakeSubsystem, s_pivotSubsystem).withTimeout(4)
-          ); // add your left side auto commands here
+          );
   }
 
   public Command getMiddleAuto() {
