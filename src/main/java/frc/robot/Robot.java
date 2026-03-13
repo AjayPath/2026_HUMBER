@@ -137,14 +137,16 @@ public class Robot extends TimedRobot {
   private final RobotContainer m_robotContainer;
 
   private final SendableChooser<String> m_autoChooser = new SendableChooser<>();
-  private static final String kAutoLeft   = "Left Side Auto";
+  private static final String kAutoDefaultLeft   = "Default Left Side Auto";
   private static final String kAutoRight  = "Right Side Auto";
+  private static final String kAutoPlayoffLeft = "Playoff Left Side Auto";
 
   public Robot() {
     m_robotContainer = new RobotContainer();
 
-    m_autoChooser.setDefaultOption("Left Side Auto", kAutoLeft);
+    m_autoChooser.setDefaultOption("Default Left Side Auto", kAutoDefaultLeft);
     m_autoChooser.addOption("Right Side Auto", kAutoRight);
+    m_autoChooser.addOption("Playoff Left Side Auto", kAutoPlayoffLeft);
     SmartDashboard.putData("Auto Chooser", m_autoChooser);
 
     initializeGyro();
@@ -167,14 +169,17 @@ public class Robot extends TimedRobot {
     SmartDashboard.putString("Auto Running", autoSelected);
 
     switch (autoSelected) {
-      case kAutoLeft:
-        m_autonomousCommand = m_robotContainer.getLeftSideAuto();
+      case kAutoDefaultLeft:
+        m_autonomousCommand = m_robotContainer.getDefaultLeftSideAuto();
+        break;
+      case kAutoPlayoffLeft:
+        m_autonomousCommand = m_robotContainer.getPlayoffLeftSideAuto();
         break;
       case kAutoRight:
         m_autonomousCommand = m_robotContainer.getRightSideAuto();
         break;
       default:
-        m_autonomousCommand = m_robotContainer.getLeftSideAuto();
+        m_autonomousCommand = m_robotContainer.getDefaultLeftSideAuto();
         break;
     }
 
