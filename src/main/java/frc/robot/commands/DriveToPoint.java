@@ -70,10 +70,10 @@ public class DriveToPoint extends Command {
   // PID Constants - Rotation
   // ===========================================================================================
 
-  private static final double kTurnP = 0.022;      // 0.02        // Proportional gain for rotation
+  private static final double kTurnP = 0.02;      // 0.02        // Proportional gain for rotation
   private static final double kTurnI = 0.0;               // Integral gain for rotation
   private static final double kTurnD = 0.0;               // Derivative gain for rotation
-  private static final double kMaxRotationSpeed = 0.75; // 0.5  // Maximum rotation speed (0-1 normalized)
+  private static final double kMaxRotationSpeed = 0.5;  // Maximum rotation speed (0-1 normalized)
 
 
 

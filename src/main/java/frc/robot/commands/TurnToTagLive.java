@@ -16,7 +16,7 @@ public class TurnToTagLive extends Command {
 
   private static final double kMaxRot = 0.30;
   private static final double kMinRot = 0.05;
-  private static final double kToleranceDeg = 2;
+  private static final double kToleranceDeg = 2; //1
 
   public TurnToTagLive(DriveSubsystem driveSubsystem) {
     this.driveSubsystem = driveSubsystem;
