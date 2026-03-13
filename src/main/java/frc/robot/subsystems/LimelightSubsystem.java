@@ -18,66 +18,8 @@ public class LimelightSubsystem extends SubsystemBase {
   
   private static final double CAMERA_TO_CENTRE = 0.349;
 
-  // -------------------------------------------------------
-  //   Per-tag TY → Distance tables
-  // -------------------------------------------------------
-  private static final double[][] T10_DISTANCE_DATA = {
-    {3.77, 0.53}, // {tY, distance}
-    {-3.61, 0.89},
-    {-9.61, 1.34},
-    {-14.42, 1.88},
-    {-17.36, 2.63}
-  };
-
-  private static final double[][] T11_DISTANCE_DATA = {
-    {3.77, 0.53}, // {tY, distance}
-    {-3.61, 0.89},
-    {-9.61, 1.34},
-    {-14.42, 1.88},
-    {-17.36, 2.63}
-  };
-
+    // Cleaned Up tables (practice)
   private static final double[][] T8_DISTANCE_DATA = {
-    {3.77, 0.53}, // {tY, distance}
-    {-3.61, 0.89},
-    {-9.61, 1.34},
-    {-14.42, 1.88},
-    {-17.36, 2.63}
-  };
-
-  private static final double[][] T2_DISTANCE_DATA = {
-    {3.77, 0.53}, // {tY, distance}
-    {-3.61, 0.89},
-    {-9.61, 1.34},
-    {-14.42, 1.88},
-    {-17.36, 2.63}
-  };
-
-  private static final double[][] T5_DISTANCE_DATA = {
-    {3.77, 0.53}, // {tY, distance}
-    {-3.61, 0.89},
-    {-9.61, 1.34},
-    {-14.42, 1.88},
-    {-17.36, 2.63}
-  };
-
-  private static final double[][] T13_DISTANCE_DATA = {
-    {3.77, 0.53}, // {tY, distance}
-    {-3.61, 0.89},
-    {-9.61, 1.34},
-    {-14.42, 1.88},
-    {-17.36, 2.63}
-  };
-
-  private static final double[][] T1_DISTANCE_DATA = { // Official
-    {3.77, 0.53}, // {tY, distance}
-    {-3.61, 0.89},
-    {-9.61, 1.34},
-    {-14.42, 1.88},
-    {-17.36, 2.63}
-  };
-
-  private static final double[][] T12_DISTANCE_DATA = { // Official
     {3.77, 0.53}, // {tY, distance}
     {-3.61, 0.89},
     {-9.61, 1.34},
@@ -93,7 +35,7 @@ public class LimelightSubsystem extends SubsystemBase {
     {-20.49, 2.01},
   };
 
-    private static final double[][] T6_DISTANCE_DATA = {
+  private static final double[][] T6_DISTANCE_DATA = {
     {8.64, 0.05}, // {tY, distance}
     {-4.27, 0.35},
     {-11.01, 0.65},
@@ -126,24 +68,31 @@ public class LimelightSubsystem extends SubsystemBase {
   /** Returns the TY→Distance table for a given tag ID, or null if unsupported. */
   public double[][] getDataForTag(double IDNum) {
     switch ((int) Math.round(IDNum)) {
-      case 10: return T10_DISTANCE_DATA;
-      case 2:  return T2_DISTANCE_DATA;
-      case 5:  return T5_DISTANCE_DATA;
-      case 13: return T13_DISTANCE_DATA;
-      case 1:  return T1_DISTANCE_DATA;
-      case 12: return T12_DISTANCE_DATA;
+      
+      // Shooting Tags RED
       case 8: return T8_DISTANCE_DATA;
-      case 11: return T11_DISTANCE_DATA;
-      case 7: return T7_DISTANCE_DATA;
+      case 10: return T8_DISTANCE_DATA;
+      case 11: return T8_DISTANCE_DATA;
+
+      // Shooting Tags BLUE
+      case 24: return T8_DISTANCE_DATA;
+      case 26: return T8_DISTANCE_DATA;
+      case 27: return T8_DISTANCE_DATA;
+
+      // Pose Reset Tags RED
+      case 1:  return T6_DISTANCE_DATA;
       case 6: return T6_DISTANCE_DATA;
+      case 7: return T7_DISTANCE_DATA;
+      case 12: return T7_DISTANCE_DATA;
+
+      // Pose Reset Tags BLUE
+      case 17: return T6_DISTANCE_DATA;
+      case 22: return T6_DISTANCE_DATA;
+      case 23: return T7_DISTANCE_DATA;
+      case 28: return T7_DISTANCE_DATA;
+      
       default: return null;
     }
-  }
-
-  /** Tags that are valid targets for auto-aiming/rotation. */
-  public boolean isAimTag() {
-    int id = (int) Math.round(Variables.limelight.tID);
-    return id == 2 || id == 5 || id == 10 || id == 13 || id == 12 || id == 1;
   }
 
   // -------------------------------------------------------
@@ -246,10 +195,10 @@ public class LimelightSubsystem extends SubsystemBase {
         Variables.limelight.turnAngle = getTurnAngle(Variables.drive.robotHeading);
         Variables.limelight.shooterRPS     = getShooterRPS();
 
-        SmartDashboard.putNumber("tid", Variables.limelight.tID);
-        SmartDashboard.putNumber("ta", Variables.limelight.tA);
-        SmartDashboard.putNumber("ty", Variables.limelight.tY);
-        SmartDashboard.putNumber("tx", Variables.limelight.tX);
+        // SmartDashboard.putNumber("tid", Variables.limelight.tID);
+        // SmartDashboard.putNumber("ta", Variables.limelight.tA);
+        // SmartDashboard.putNumber("ty", Variables.limelight.tY);
+        // SmartDashboard.putNumber("tx", Variables.limelight.tX);
 
         SmartDashboard.putNumber("distanceMeters", Variables.limelight.distanceMeters);
         SmartDashboard.putNumber("turnAngle", Variables.limelight.turnAngle);

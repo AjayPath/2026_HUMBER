@@ -22,6 +22,7 @@ public class ShootSequence extends SequentialCommandGroup {
     addCommands(
 
       new TurnToTagLive(drive),
+      //new InstantCommand(() -> drive.setX(), drive),
       new ParallelCommandGroup(
         // Lock drivetrain in place
         // new RunCommand(() -> drive.setX(), drive),

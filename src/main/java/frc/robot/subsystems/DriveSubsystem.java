@@ -62,7 +62,7 @@ public class DriveSubsystem extends SubsystemBase {
     m_odometry.update();
     Variables.drive.robotHeading = getHeading();
     // Publish odometry data to SmartDashboard
-    m_odometry.publishToSmartDashboard();
+    //m_odometry.publishToSmartDashboard();
   }
 
   /**

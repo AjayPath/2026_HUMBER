@@ -1,0 +1,159 @@
+// -------------------------------------------------------
+  //   Per-tag TY → Distance tables
+  // -------------------------------------------------------
+  private static final double[][] T10_DISTANCE_DATA = {
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
+  };
+
+  private static final double[][] T11_DISTANCE_DATA = {
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
+  };
+
+  private static final double[][] T8_DISTANCE_DATA = {
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
+  };
+
+  private static final double[][] T2_DISTANCE_DATA = {
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
+  };
+
+  private static final double[][] T5_DISTANCE_DATA = {
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
+  };
+
+  private static final double[][] T13_DISTANCE_DATA = {
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
+  };
+
+  private static final double[][] T1_DISTANCE_DATA = { // Official
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
+  };
+
+  private static final double[][] T12_DISTANCE_DATA = { // Official
+    {3.77, 0.53}, // {tY, distance}
+    {-3.61, 0.89},
+    {-9.61, 1.34},
+    {-14.42, 1.88},
+    {-17.36, 2.63}
+  };
+
+  private static final double[][] T7_DISTANCE_DATA = {
+    {-2.58, 0.33}, // {tY, distance}
+    {-9.91, 0.65},
+    {-16.05, 1.14},
+    {-19.13, 1.62},
+    {-20.49, 2.01},
+  };
+
+    private static final double[][] T6_DISTANCE_DATA = {
+    {8.64, 0.05}, // {tY, distance}
+    {-4.27, 0.35},
+    {-11.01, 0.65},
+    {-16.12, 1.16},
+    {-19.97, 1.64},
+    {-21.19, 2.13},
+    {-22.22, 2.58}
+  };
+
+  // Distance → Shooter RPS
+  private static final double[][] SPEED_DATA = {
+    {1.51, 60},  // {distance, speed}
+    {1.92, 62},
+    {2.34, 64},
+    {2.71, 67},
+    {2.75, 68},
+    {2.80, 70},
+    {3.00, 70},
+    {3.25, 70}
+  };
+
+  // -------------------------------------------------------
+  //   Tag Classification
+  // -------------------------------------------------------
+
+  /** Returns the TY→Distance table for a given tag ID, or null if unsupported. */
+  public double[][] getDataForTag(double IDNum) {
+    switch ((int) Math.round(IDNum)) {
+      case 10: return T10_DISTANCE_DATA;
+      case 25: return T10_DISTANCE_DATA;
+      case 28: return T7_DISTANCE_DATA;
+      case 17: return T6_DISTANCE_DATA;
+      case 27: return T8_DISTANCE_DATA;
+      case 24: return T11_DISTANCE_DATA;
+      case 23: return T7_DISTANCE_DATA;
+      case 22: return T6_DISTANCE_DATA;
+      case 2:  return T2_DISTANCE_DATA;
+      case 5:  return T5_DISTANCE_DATA;
+      case 13: return T13_DISTANCE_DATA;
+      case 1:  return T6_DISTANCE_DATA;
+      case 12: return T7_DISTANCE_DATA;
+      case 8: return T8_DISTANCE_DATA;
+      case 11: return T11_DISTANCE_DATA;
+      case 7: return T7_DISTANCE_DATA;
+      case 6: return T6_DISTANCE_DATA;
+      default: return null;
+    }
+  }
+
+// COMP VALUES - HUMBER
+
+private static final double[][] T8_DISTANCE_DATA = {
+    {0.38, 0.6096},
+    {-4.18, 0.8458},
+    {-7.57, 1.0846},
+    {-10.88, 1.3716},
+    {-13.51, 1.6637},
+    {-15.02, 1.9177},
+    {-16.11, 2.1336},
+    {-17.12, 2.3622},
+    {-17.65, 2.6353},
+    {-22, 3}
+  };
+
+  private static final double[][] T7_DISTANCE_DATA = {
+    {0.24, 0.1524},
+    {-9.35, 0.5334},
+    {-15.76, 1.0414},
+    {-18.67, 1.4732},
+    {-20.70, 1.9939},
+    {-22.38, 2.5273},
+    {-23.37, 3.0556}
+  };
+
+  private static final double[][] T6_DISTANCE_DATA = {
+    {-11.14, 0.6096},
+    {-14.57, 0.8636},
+    {-16.93, 1.1176},
+    {-19.31, 1.5367},
+    {-21.17, 2.0320},
+    {-22.39, 2.4181},
+    {-22.92, 2.9210}
+  };
