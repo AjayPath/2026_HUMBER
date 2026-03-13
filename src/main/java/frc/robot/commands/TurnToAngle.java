@@ -96,7 +96,7 @@ public class TurnToAngle extends Command {
   private static final double kTurnP = 0.02;
   private static final double kTurnI = 0.0;
   private static final double kTurnD = 0.0;
-  private static final double kMaxRot = 0.625; //0.5
+  private static final double kMaxRot = 0.5; //0.625
 
   public TurnToAngle(
       DriveSubsystem driveSubsystem,

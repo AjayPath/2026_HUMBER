@@ -52,19 +52,19 @@ public class DriveToPoint extends Command {
   // PID Constants - X Controller
   // ===========================================================================================
 
-  private static final double kXP = 0.64;       //0.62 // 0.6      // Proportional gain for X-axis
+  private static final double kXP = 0.6;       //0.62 // 0.6      // Proportional gain for X-axis
   private static final double kXI = 0.0;              // Integral gain for X-axis
   private static final double kXD = 0.05;             // Derivative gain for X-axis
-  private static final double kXMaxSpeed = 1.5; //1.25 // 1     // Maximum X velocity (0-1 normalized)
+  private static final double kXMaxSpeed = 1.15; //1.25 // 1     // Maximum X velocity (0-1 normalized)
 
   // ===========================================================================================
   // PID Constants - Y Controller
   // ===========================================================================================
 
-  private static final double kYP = 0.64;        //0.62      // Proportional gain for Y-axis
+  private static final double kYP = 0.6;        //0.62      // Proportional gain for Y-axis
   private static final double kYI = 0.0;              // Integral gain for Y-axis
   private static final double kYD = 0.05;             // Derivative gain for Y-axis
-  private static final double kYMaxSpeed = 1.5;  // 1.25 // 1  // Maximum Y velocity (0-1 normalized)
+  private static final double kYMaxSpeed = 1.15;  // 1.25 // 1  // Maximum Y velocity (0-1 normalized)
 
   // ===========================================================================================
   // PID Constants - Rotation
