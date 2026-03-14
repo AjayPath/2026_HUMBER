@@ -138,14 +138,12 @@ public class Robot extends TimedRobot {
 
   private final SendableChooser<String> m_autoChooser = new SendableChooser<>();
   private static final String kAutoLeft   = "Left Side Auto";
-  private static final String kAutoMiddle = "Middle Auto";
   private static final String kAutoRight  = "Right Side Auto";
 
   public Robot() {
     m_robotContainer = new RobotContainer();
 
     m_autoChooser.setDefaultOption("Left Side Auto", kAutoLeft);
-    m_autoChooser.addOption("Middle Auto", kAutoMiddle);
     m_autoChooser.addOption("Right Side Auto", kAutoRight);
     SmartDashboard.putData("Auto Chooser", m_autoChooser);
 
@@ -175,9 +173,8 @@ public class Robot extends TimedRobot {
       case kAutoRight:
         m_autonomousCommand = m_robotContainer.getRightSideAuto();
         break;
-      case kAutoMiddle:
       default:
-        m_autonomousCommand = m_robotContainer.getMiddleAuto();
+        m_autonomousCommand = m_robotContainer.getLeftSideAuto();
         break;
     }
 

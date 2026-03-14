@@ -127,15 +127,20 @@ public class LimelightSubsystem extends SubsystemBase {
   public double[][] getDataForTag(double IDNum) {
     switch ((int) Math.round(IDNum)) {
       case 10: return T10_DISTANCE_DATA;
-      case 2:  return T2_DISTANCE_DATA;
-      case 5:  return T5_DISTANCE_DATA;
-      case 13: return T13_DISTANCE_DATA;
-      case 1:  return T1_DISTANCE_DATA;
-      case 12: return T12_DISTANCE_DATA;
-      case 8: return T8_DISTANCE_DATA;
-      case 11: return T11_DISTANCE_DATA;
+      case 11: return T10_DISTANCE_DATA;
+      case 8: return T10_DISTANCE_DATA;
       case 7: return T7_DISTANCE_DATA;
+      case 12: return T7_DISTANCE_DATA;
       case 6: return T6_DISTANCE_DATA;
+      case 1: return T6_DISTANCE_DATA;
+
+      case 26: return T10_DISTANCE_DATA;
+      case 27: return T10_DISTANCE_DATA;
+      case 24: return T10_DISTANCE_DATA;
+      case 28: return T7_DISTANCE_DATA;
+      case 23: return T7_DISTANCE_DATA;
+      case 17: return T6_DISTANCE_DATA;
+      case 22: return T6_DISTANCE_DATA;
       default: return null;
     }
   }
